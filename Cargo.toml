@@ -14,7 +14,7 @@ readme = "README.md"
 appveyor = { repository = "liranringel/ipconfig" }
 
 [dependencies]
-error-chain = "0.12.0"
+error-chain = { version = "0.12.0", default-features = false }
 
 [target.'cfg(windows)'.dependencies]
 socket2 = "^0.3.8"
