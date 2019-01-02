@@ -1,4 +1,3 @@
-use std::net::IpAddr;
 use std::collections::HashMap;
 
 use nix::net::if_::InterfaceFlags;

@@ -22,8 +22,9 @@
 
 #[macro_use]
 extern crate error_chain;
-extern crate socket2;
 
+#[cfg(windows)]
+extern crate socket2;
 #[cfg(windows)]
 extern crate winapi;
 #[cfg(windows)]
