@@ -13,9 +13,14 @@ readme = "README.md"
 [badges]
 appveyor = { repository = "liranringel/ipconfig" }
 
+[dependencies]
+error-chain = "0.8"
+socket2 = "^0.3.1"
+
 [target.'cfg(windows)'.dependencies]
 winapi = "^0.3.4"
-error-chain = "0.8"
 widestring = "^0.2.2"
-socket2 = "^0.3.1"
 winreg = "^0.5.0"
+
+[target.'cfg(any(target_os = "linux", target_os = "macos"))'.dependencies]
+nix = "0.12.0"

@@ -17,20 +17,29 @@
 //! # }
 //! ```
 
-#![cfg(windows)]
-#![doc(html_root_url = "https://docs.rs/ipconfig/0.1.9/x86_64-pc-windows-msvc/ipconfig/")]
+// #![cfg(windows)]
+// #![doc(html_root_url = "https://docs.rs/ipconfig/0.1.9/x86_64-pc-windows-msvc/ipconfig/")]
 
 #[macro_use]
 extern crate error_chain;
-extern crate winapi;
-extern crate widestring;
 extern crate socket2;
+
+#[cfg(windows)]
+extern crate winapi;
+#[cfg(windows)]
+extern crate widestring;
+#[cfg(windows)]
 extern crate winreg;
 
+#[cfg(any(target_os = "linux", target_os = "macos"))]
+extern crate nix;
 
 pub mod error;
+#[cfg(windows)]
 pub mod computer;
+
 mod adapter;
+#[cfg(windows)]
 mod bindings;
 
 pub use adapter::{get_adapters, Adapter, OperStatus, IfType};
